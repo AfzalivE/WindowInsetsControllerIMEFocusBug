@@ -2,14 +2,12 @@ package com.afzaln.windowinsetsimefocusbug
 
 import android.os.Build
 import android.os.Bundle
-import android.view.ViewGroup
 import android.view.WindowInsets
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.getSystemService
-import androidx.core.view.WindowInsetsControllerCompat
 import androidx.core.view.contains
 import com.afzaln.windowinsetsimefocusbug.databinding.ActivityImeFocusBugBinding
 
@@ -44,7 +42,7 @@ class ImeFocusBugActivity : AppCompatActivity() {
             editText.requestFocus()
             getSystemService<InputMethodManager>()?.showSoftInput(editText, 0)
         }
-        val insetController = WindowInsetsControllerCompat(window, editText)
-        insetController.show(WindowInsets.Type.ime())
+        val insetController = editText.windowInsetsController
+        insetController?.show(WindowInsets.Type.ime())
     }
 }
