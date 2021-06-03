@@ -8,7 +8,7 @@ editText.requestFocus()
 getSystemService<InputMethodManager>()?.showSoftInput(editText, 0)
 ```
 
-This is also valid for when `WindowInsetsController#controlWindowInsetsAnimation()` is called. One scenario where you might encounted this is if you have a fragment enter transition, that you postpone until the IME is about to show up. In this case, if the fragment that contains an `EditText` that requests focus is dismissed after the focus change, it will not re-appear since the IME won't show up. 
+This is also valid for when `WindowInsetsController#controlWindowInsetsAnimation()` is called and the animation will be controllable as defined. One scenario where you might encounter this is if you have a fragment enter transition that you postpone until the IME is about to show up. In this case, if the fragment that contains an `EditText` that requests focus is dismissed after the focus change, it will not re-appear since the IME won't show up. 
 
 Here's a much more simplistic app recreating the same effect.
 
